@@ -1,0 +1,629 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #042c83; 
+    --accent-color: #fffadd;  
+    --bg-color: #ffffff;      
+    --text-dark: #2d2522;     
+    --text-light: #ffffff;
+    --card-bg: #ffffff;
+    --shadow: 0 8px 24px rgba(0,0,0,0.05);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadeInDown 0.8s ease; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(rgba(111, 78, 55, 0.05), rgba(111, 78, 55, 0.02));
+    animation: fadeInDown 1s ease 0.2s both;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    margin: 40px 0 20px 0;
+    padding-left: 10px;
+    border-left: 5px solid var(--primary-color);
+    color: var(--primary-color);
+    animation: fadeInUp 0.8s ease;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+
+.menu-item {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(111, 78, 55, 0.15);
+}
+
+.menu-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #d5ecf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+}
+
+.menu-img-placeholder::after {
+    content: "Lihat Detail";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(132, 135, 153, 0.85);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.menu-item:hover .menu-img-placeholder::after {
+    opacity: 1;
+}
+
+.menu-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.menu-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.menu-desc {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.menu-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.menu-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.order-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.order-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+
+footer {
+    background-color: var(--text-dark);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+footer span {
+    color: var(--accent-color);
+}
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+}
+
+
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cozy-brown: #042c83;
+    --cozy-cream: #d5ecf8;
+    --cozy-yellow: #fffadd;
+    --text-dark: #333333;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #faf8f5;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/**/
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* */
+.category-title {
+    font-family: 'Poppins', sans-serif;
+    color: var(--cozy-brown);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed #ccc;
+    padding-bottom: 10px;
+}
+
+/**/
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Tetap 250px */
+    gap: 20px; /* Tetap 20px */
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+/**/
+.menu-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0; /* Border asli tetap ada */
+    border-radius: 12px; /* Lengkungan asli tetap 12px */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Bayangan asli */
+    transition: var(--transition); /* Transisi halus Letris */
+    display: flex;
+    flex-direction: column;
+}
+
+/* */
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(139, 90, 43, 0.15);
+}
+
+/* */
+.menu-img {
+    height: 140px; /*  */
+    background-color: var(--cozy-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--cozy-brown);
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+/* */
+.menu-img::after {
+    content: "Lihat Detail";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(132, 135, 153, 0.85); /* */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0; /* */
+    transition: var(--transition);
+}
+
+/* */
+.menu-item:hover .menu-img::after {
+    opacity: 1;
+}
+
+/**/
+.menu-info {
+    padding: 15px; /* */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.menu-title {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.menu-description {
+    margin: 0 0 15px 0;
+    font-size: 0.85rem;
+    color: #555353;
+    line-height: 1.4;
+    min-height: 40px; /*  */
+    flex-grow: 1; /*  */
+}
+
+.menu-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.menu-price {
+    font-weight: bold;
+    color: var(--cozy-brown);
+    font-size: 1.1rem;
+}
+
+/* */
+.btn-order {
+    background-color: var(--cozy-brown);
+    color: white;
+    border: none;
+    padding: 8px 20px; /*  */
+    border-radius: 20px; /*  */
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+/**/
+.btn-order:hover {
+    background-color: var(--cozy-yellow);
+    color: var(--text-dark);
+}
+
+/* */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--cozy-brown);
+    color: white;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.menu-item:nth-child(2) .badge {
+    background-color: #210aa1; /**/
+}
+
+
+
+
+/* Pengaturan Warna Utama */
+:root {
+  --teak-wood: #000000;      /* Cokelat Tua Jati */
+  --cobalt-vintage: #50a8f5; /* Biru Retro */
+  --warm-cream: #FDFBF4;     /* Krem Hangat */
+}
+
+
+.alamat {
+  background: rgb(85, 127, 182); /* Kotak transparan tipis */
+  padding: 8px 15px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold; /* Dibuat tebal agar lebih jelas */
+  
+  /* GANTI KODE WARNA TEKS DI SINI */
+  color: #ffffff; /* Menggunakan warna Kuning Mustard Lembut */
+}
+
+
+
+
+.footer {
+  /* GANTI KODE DI BARIS INI */
+  background-color: #98b3d3; /* Mengubah kotak hitam besar jadi cokelat jati */
+  
+  color: #FDFBF4; /* Warna teks isi di dalamnya (Warm Cream) */
+  text-align: center;
+  padding: 35px 20px;
+  margin-top: 60px;
+  border-radius: 12px;
+}
+
+
+
+<style>
+  footer {
+    background-color: #8a91d3 !important;
+    background: #3c61da !important;
+  }
+</style>
+
+
+
+
+
+
+
+
+/* --- GAYA BARU UNTUK PETUNJUK PESAN & INSTAGRAM --- */
+.petunjuk-pesan {
+  font-size: 13px;
+  color: var(--teak-wood);
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.btn-ig {
+  display: block;
+  background: var(--cobalt-vintage);
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 2px solid var(--teak-wood);
+  box-shadow: 2px 2px 0px var(--teak-wood);
+  transition: all 0.2s ease;
+}
+
+.btn-ig:hover {
+  background: var(--teak-wood);
+  color: var(--warm-cream);
+  transform: translateY(-2px);
+}
+
+/* --- GAYA BARU KOTAK ULASAN --- */
+.garis-pembatas {
+  border-top: 1px dashed #000000;
+  margin: 25px 0 20px 0;
+}
+
+.kotak-ulasan-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.judul-ulasan {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--teak-wood);
+  margin-bottom: 8px;
+}
+
+/* Desain Box Tempat Naro Ulasan */
+.box-ulasan {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 2px solid var(--teak-wood);
+  border-radius: 8px;
+  background-color: var(--warm-cream);
+  color: var(--teak-wood);
+  font-family: inherit;
+  font-size: 13px;
+  resize: none; /* Biar ukurannya tidak bisa ditarik-tarik sembarangan oleh user */
+  box-sizing: border-box;
+}
+
+.box-ulasan:focus {
+  outline: none;
+  border-color: var(--cobalt-vintage); /* Berubah biru cobalt saat kotak diklik */
+}
+
+/* Tombol Kirim Ulasan */
+.btn-kirim-ulasan {
+  background-color: #FFFFFF;
+  color: var(--teak-wood);
+  border: 2px solid var(--teak-wood);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 8px;
+  align-self: flex-end; /* Memposisikan tombol di sebelah kanan bawah box */
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--teak-wood);
+}
+
+.btn-kirim-ulasan:hover {
+  background-color: var(--teak-wood);
+  color: #f70000;
+}
